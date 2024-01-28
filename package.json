@@ -3,15 +3,18 @@
   "version": "1.0.0",
   "description": "Project used by me to practice nodejs",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node index.js"
+    "start": "node localserver.js",
+    "mongodb": "node mongodbserver.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "2.8.5",
     "express": "4.18.2",
+    "mongodb": "6.3.0",
     "zod": "3.22.4"
   }
 }
