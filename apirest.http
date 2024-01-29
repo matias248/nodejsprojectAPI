@@ -1,35 +1,36 @@
-### Recuperar todas las películas
+### Get all movies
 GET http://localhost:3001/movies
 
-### Recuperar una película por id
+### Get by id
 GET http://localhost:3001/movies/65b6c351179df29507b30db1
 
-### Recuperar todas las películas por un género
-GET http://localhost:3001/movies?genre=ACTION
+### Get by genre
+GET http://localhost:3001/movies?genre=Action
 
-### Crear una película con POST
+### Create a movie
 POST http://localhost:3001/movies
 Content-Type: application/json
 
 {
-  "title": "test",
-  "year": 1975,
+  "title": "drama",
+  "year": 2001,
   "director": "Francis Ford Coppola",
   "duration": 175,
   "poster": "https://img.fruugo.com/product/4/49/14441494_max.jpg",
   "genre": [
     "Crime",
-    "Action"
+    "Drama"
   ]
 }
 
-### Actualizar una película
-PATCH http://localhost:3001/movies/65b6c658cb90194438c7e4bb
+### Update a movie
+PATCH http://localhost:3001/movies/65b6c351179df29507b30db1
 Content-Type: application/json
 
 {
-  "year": 2015
+  "year": 2014,
+  "title":"patched"
 }
 
-### Delete
+### Delete a movie
 DELETE http://localhost:3001/movies/65b6c351179df29507b30db1

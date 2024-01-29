@@ -1,4 +1,5 @@
 import z from 'zod';
+import { mongoose } from 'mongoose';
 
 
 const movieSchema = z.object({
@@ -22,10 +23,23 @@ const movieSchema = z.object({
   )
 })
 
-export function validateMovie (input) {
+export function validateMovie(input) {
   return movieSchema.safeParse(input)
 }
 
-export function validatePartialMovie (input) {
+export function validatePartialMovie(input) {
   return movieSchema.partial().safeParse(input)
 }
+
+export const movieSchemaMongoDB = mongoose.Schema(
+  {
+    title: { type: String, required: true },
+    year: { type: Number, required: true },
+    director: { type: String, required: true },
+    duration: { type: Number, required: true },
+    rate: { type: Number, required: false},
+    poster: { type: String, required: true },
+    genre: { type: [String], required: true }
+  });
+
+export const movieModelMoongoose = mongoose.model('MovieTest', movieSchemaMongoDB);

@@ -3,7 +3,7 @@ import { corsMiddleware } from './middlewares/corsmiddleware.js';
 import { createMovieRouter } from './routes/movies.js';
 
 export const createApp = ({ movieModel }) => {
-    const app = express();
+    const app = express(); 
     
     app.use(json())
     app.use(corsMiddleware(0))

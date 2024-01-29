@@ -27,7 +27,6 @@ export class MovieController {
         }
 
         const newMovie = await this.movieModel.create({ input: result.data })
-
         res.status(201).json(newMovie)
     }
 
@@ -36,7 +35,7 @@ export class MovieController {
 
         const result = await this.movieModel.delete({ id })
 
-        if (result === false) {
+        if (!result) {
             return res.status(404).json({ message: 'Movie not found' })
         }
 
@@ -54,7 +53,7 @@ export class MovieController {
 
         const updatedMovie = await this.movieModel.update({ id, input: result.data })
 
-        if (updatedMovie === false) {
+        if (!updatedMovie) {
             return res.status(404).json({ message: 'Movie not found' })
         }
 
